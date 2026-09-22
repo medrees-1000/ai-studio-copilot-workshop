@@ -13,6 +13,8 @@ Once you have finished writing the methods using Copilot's Tab Completion,
 run this file and analyze how well Copilot wrote this DataCleaner class by answering the questions at the bottom of this file. 
 """
 
+from pathlib import Path
+
 import pandas as pd
 
 
@@ -34,8 +36,9 @@ class DataCleaner:
 
 
 if __name__ == "__main__":
-    df = pd.read_csv("sample_data.csv")  
-    cleaner = DataCleaner(df)  
+    csv_path = Path(__file__).with_name("sample_data.csv")
+    df = pd.read_csv(csv_path)
+    cleaner = DataCleaner(df)
     cleaner.drop_missing()
     cleaner.drop_duplicate_rows()
     print(cleaner.df)
