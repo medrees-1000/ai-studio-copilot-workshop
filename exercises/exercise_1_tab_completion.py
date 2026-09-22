@@ -14,21 +14,35 @@ own version.
 
 def square(n):
     # Return the square of n.
-    pass
+    return n**2
 
 
 def is_prime(n):
     # Return True if n is prime, False otherwise.
-    pass
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+
+    divisor = 5
+    while divisor * divisor <= n:
+        if n % divisor == 0 or n % (divisor + 2) == 0:
+            return False
+        divisor += 6
+
+    return True
 
 
 def filter_by_length(strings, min_length):
     # Return only the strings from `strings` that are at least
     # `min_length` characters long.
-    pass
+    return [s for s in strings if len(s) >= min_length]
 
 
 def reverse_sentence(sentence):
     # Reverse the word order of `sentence`.
     # "hello world" becomes "world hello".
-    pass
+    words = sentence.split()
+    return " ".join(reversed(words))

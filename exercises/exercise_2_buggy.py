@@ -14,6 +14,8 @@ a list of numbers, but it has a bug.
 
 
 def average(numbers):
+    if not numbers:
+        return 0  # Return 0 for an empty list to avoid division by zero.
     total = 0
     for n in numbers:
         total += n

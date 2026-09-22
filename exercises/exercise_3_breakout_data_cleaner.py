@@ -22,15 +22,15 @@ class DataCleaner:
 
     def drop_missing(self):
         # Drop rows with any missing values, updating self.df in place.
-        pass
+        self.df = self.df.dropna()
 
     def drop_duplicate_rows(self):
         # Remove duplicate rows, updating self.df in place.
-        pass
+        self.df = self.df.drop_duplicates()
 
     def summary(self):
         # Return summary statistics for the DataFrame.
-        pass
+        return self.df.describe(include="all")
 
 
 if __name__ == "__main__":
